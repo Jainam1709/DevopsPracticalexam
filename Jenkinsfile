@@ -80,7 +80,7 @@ pipeline {
                 script{echo 'deploying the application successfuly'
                 withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
                     sh "echo ${PASSWORD} | docker login -u ${USERNAME} --password-stdin"
-                    sh "docker push jainam1709/springboot:${IMAGE_NAME}"
+                    sh "docker push jainam1709/practicalexam:${IMAGE_NAME}"
                 }}
 
              }
@@ -89,7 +89,7 @@ pipeline {
 //             steps{
 //                 script{
 //                     def dockerRestart = 'sudo service docker restart'
-//                     def dockerRunCmd = "sudo docker run -p 8080:8080 -d learnwithparth/spring-boot:${IMAGE_NAME}"
+//                     def dockerRunCmd = "sudo docker run -p 8080:8080 -d learnwithparth/practicalexam:${IMAGE_NAME}"
 //                   sshagent(['ec2-prod']) {
 //                         sh "ssh -o StrictHostKeyChecking=no ec2-user@54.237.0.178 ${dockerRunCmd}"
 //                     }

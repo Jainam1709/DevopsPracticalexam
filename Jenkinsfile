@@ -62,7 +62,7 @@ pipeline {
                     sh 'mvn clean package'
                     def version = (readFile('pom.xml') =~ '<version>(.+)</version>')[0][1]
                     env.IMAGE_NAME = "$version-Build-$BUILD_NUMBER"
-                    sh "docker build -t jainam1709/springboot:${IMAGE_NAME} ."
+                    sh "docker build -t jainam1709/practicalexam:${IMAGE_NAME} ."
                     }
             }
         }
@@ -89,7 +89,7 @@ pipeline {
 //             steps{
 //                 script{
 //                     def dockerRestart = 'sudo service docker restart'
-//                     def dockerRunCmd = "sudo docker run -p 8080:8080 -d learnwithparth/practicalexam:${IMAGE_NAME}"
+//                     def dockerRunCmd = "sudo docker run -p 8080:8080 -d learnwithparth/spring-boot:${IMAGE_NAME}"
 //                   sshagent(['ec2-prod']) {
 //                         sh "ssh -o StrictHostKeyChecking=no ec2-user@54.237.0.178 ${dockerRunCmd}"
 //                     }
